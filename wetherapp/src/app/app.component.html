@@ -1,0 +1,69 @@
+
+ 
+<body class="bg-gradient-to-br  from-blue-400 to-blue-600 min-h-screen flex items-center justify-center p-4" *ngIf="weatherData">
+ 
+  <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden">
+      <!-- Upper part -->
+        <div class="search">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="search city" name="city" [(ngModel)]="cityName">
+    </form>
+
+  </div>
+      <div class="bg-gradient-to-r p-6 text-white">
+        <img src="../assets/cold Image.webp" alt="" *ngIf="weatherData.main.temp >15" class="rounded-xl">
+        <img src="../assets/Hot image.avif" alt="" *ngIf="weatherData.main.temp <=15" class="rounded-xl">
+        <div class="flex items-center justify-between">
+          <div class="text-3xl font-bold text-black">{{weatherData.name}}</div>
+        
+      </div>
+          <div class="flex items-center justify-between">
+              <div class="text-6xl font-bold">{{weatherData.main.temp | number : '1.0-0'}}°C</div>
+            
+          </div>
+      </div>
+      
+      <!-- Lower part -->
+      <div class="p-6 grid grid-cols-2 gap-4">
+          <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+              </svg>
+              <div>
+                  <div class="text-gray-500 text-sm">Max</div>
+                  <div class="font-semibold">{{weatherData.main.temp_max}}°C</div>
+              </div>
+          </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+            </svg>
+            <div>
+                <div class="text-gray-500 text-sm">Min</div>
+                <div class="font-semibold">{{weatherData.main.temp_min}}°C</div>
+            </div>
+        </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+            <div>
+                <div class="text-gray-500 text-sm">Humidity</div>
+                <div class="font-semibold">{{weatherData.main.humidity}}%</div>
+            </div>
+        </div>
+          <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <div>
+                  <div class="text-gray-500 text-sm">Wind</div>
+                  <div class="font-semibold">{{weatherData.wind.speed}}km/h</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+<router-outlet />
