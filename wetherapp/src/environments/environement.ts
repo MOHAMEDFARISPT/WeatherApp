@@ -3,6 +3,6 @@ export const environment = {
     xrapidapihostHeaderName: 'x-rapidapi-host',
     xrapidapihostHeaderValue: 'weather-api99.p.rapidapi.com',
     xrapidapikeyHostName: 'x-rapidapi-key',
-    xrapidapikeyHostValue: 'b8174769b8msh3c9b99ff5ffa86dp151f67jsn21e888efc429'
+    xrapidapikeyHostValue: '41989d21b0mshd8593ac723832a8p1985cbjsn69527a2e708f'
   };
   

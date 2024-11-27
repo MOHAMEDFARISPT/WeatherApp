@@ -11,6 +11,10 @@ export class AppComponent implements OnInit {
   title = 'wetherapp';
   weatherData!:weatherData
   cityName:string='wellington'
+  convertedTemp!: number;
+  convertedTempMin!: number;
+  convertedTempMax!: number;
+  isLoading:boolean=false;
 constructor(private weatherService:WeatherService){}
 
   ngOnInit(): void {
@@ -20,6 +24,7 @@ constructor(private weatherService:WeatherService){}
     
   }
   onSubmit(){
+    this.isLoading=true
     this.getWeatherData(this.cityName)
     this.cityName='';
 
@@ -29,10 +34,15 @@ constructor(private weatherService:WeatherService){}
     this.weatherService.getweatherData(cityName)
     .subscribe({
       next:(response)=>{
+        this.isLoading=false
         console.log('response',response)
         this.weatherData=response
+        this.convertedTemp = this.weatherData.main.temp - 273.15;
+        this.convertedTempMin = this.weatherData.main.temp_min - 273.15;
+        this.convertedTempMax = this.weatherData.main.temp_max - 273.15;
       },
       error:(Error)=>{
+        this.isLoading=false
         console.log('Error',Error)
       }
     })

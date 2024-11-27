@@ -18,6 +18,7 @@ export class WeatherService {
       .set(environment.xrapidapikeyHostName,environment.xrapidapikeyHostValue),
       params:new HttpParams()
       .set('city',cityName)
+      .set('units','metric')
 
     })
 

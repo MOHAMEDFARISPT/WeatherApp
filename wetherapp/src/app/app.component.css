@@ -3,18 +3,3 @@
 @tailwind utilities;
 
 
-.search{
-    margin-bottom:1em;
-    margin-top: 3px;
-    text-align: center;
-}
-
-.search input{
-    background-color: var(--shadow-light);
-    border-radius:20px;
-    padding: 1em;
-    color: var(--grey-1);
-    font-size: 0.8em;
-    text-align: center;
-
-}
